@@ -1,0 +1,216 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>高数笔记  高数一 | 鸡腿小鲜肉的养鸡场</title><meta name="description" content="高数一只挑我感兴趣的随便一记. 重在理解概念 微分连续 实际上就是说, 当自变量取某个值时, 函数值存在.并且这个自变量附近的函数值与该点的函数值要差不多…这个附近要多小就多小… 导数 要比连续更加严格,所谓”可导必连续, 连续不一定可导”… 求导公式就不说了, so easy.. 光滑曲线 导数存在且连续, 这样函数处处有切线, 切线随着切点的移动而连续的转动. 微分 就是给定函数f(x)的一点"><meta name="keywords" content="Math"><meta name="author" content="Qin Jin"><meta name="copyright" content="Qin Jin"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/qinjin.github.io/img/MMAicon.svg"><link rel="canonical" href="https://qinjinbnu.github.io/qinjin.github.io/2020/08/14/Advanced-Mathematics/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="高数笔记  高数一"><meta property="og:url" content="https://qinjinbnu.github.io/qinjin.github.io/2020/08/14/Advanced-Mathematics/"><meta property="og:site_name" content="鸡腿小鲜肉的养鸡场"><meta property="og:description" content="高数一只挑我感兴趣的随便一记. 重在理解概念 微分连续 实际上就是说, 当自变量取某个值时, 函数值存在.并且这个自变量附近的函数值与该点的函数值要差不多…这个附近要多小就多小… 导数 要比连续更加严格,所谓”可导必连续, 连续不一定可导”… 求导公式就不说了, so easy.. 光滑曲线 导数存在且连续, 这样函数处处有切线, 切线随着切点的移动而连续的转动. 微分 就是给定函数f(x)的一点"><meta property="og:image" content="https://qinjinbnu.github.io/qinjin.github.io/img/c2.jpg"><meta property="article:published_time" content="2020-08-14T12:59:50.000Z"><meta property="article:modified_time" content="2020-08-20T16:23:40.686Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/qinjin.github.io/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="prev" title="Ubuntu 缺失字体安装" href="https://qinjinbnu.github.io/qinjin.github.io/2020/08/14/Ubuntu-Fonts/"><link rel="next" title="Ubuntu 搭建 Hexo 博客(butterfly 主题)" href="https://qinjinbnu.github.io/qinjin.github.io/2020/07/24/Ubuntu-Hexo-Blog/"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/qinjin.github.io/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><canvas class="fireworks"></canvas><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/qinjin.github.io/img/MMAicon.svg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/qinjin.github.io/archives/"><div class="headline">文章</div><div class="length_num">7</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/qinjin.github.io/tags/"><div class="headline">标签</div><div class="length_num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/qinjin.github.io/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/qinjin.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/qinjin.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/qinjin.github.io/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/qinjin.github.io/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><i class="fas fa-arrow-right" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#高数一"><span class="toc-number">1.</span> <span class="toc-text">高数一</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#微分"><span class="toc-number">1.1.</span> <span class="toc-text">微分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#积分"><span class="toc-number">1.2.</span> <span class="toc-text">积分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#不定积分"><span class="toc-number">1.2.1.</span> <span class="toc-text">不定积分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定积分"><span class="toc-number">1.2.2.</span> <span class="toc-text">定积分</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#向量代数与空间解析几何"><span class="toc-number">2.</span> <span class="toc-text">向量代数与空间解析几何</span></a></li></ol></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/qinjin.github.io/img/c2.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/qinjin.github.io/">鸡腿小鲜肉的养鸡场</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/qinjin.github.io/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/qinjin.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/qinjin.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/qinjin.github.io/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/qinjin.github.io/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">高数笔记  高数一</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-08-14 20:59:50"><i class="far fa-calendar-alt fa-fw"></i> 发表于 2020-08-14</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-08-21 00:23:40"><i class="fas fa-history fa-fw"></i> 更新于 2020-08-21</span></time></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta__icon"></i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h1 id="高数一"><a href="#高数一" class="headerlink" title="高数一"></a>高数一</h1><p>只挑我感兴趣的随便一记. 重在理解概念</p>
+<h2 id="微分"><a href="#微分" class="headerlink" title="微分"></a>微分</h2><p><strong>连续</strong> 实际上就是说, 当自变量取某个值时, 函数值存在.并且这个自变量附近的函数值与该点的函数值要差不多…这个附近要多小就多小…</p>
+<p><strong>导数</strong> 要比连续更加严格,所谓”可导必连续, 连续不一定可导”…</p>
+<p>求导公式就不说了, so easy..</p>
+<p><strong>光滑曲线</strong> 导数存在且连续, 这样函数处处有切线, 切线随着切点的移动而连续的转动.</p>
+<p><strong>微分</strong> 就是给定函数f(x)的一点x0, 过该点画f(x)切线, 对于一个小的自变量偏移dx, 在区间(x0,x0+dx)内,该切线函数值的增长dy, dy 是 $\Delta f(x)$ 的线性近似</p>
+<p><strong>弧微分</strong> 对应于微分三角形的斜边…且有关系$ds^2=dx^2+dy^2 $,即$ds=\sqrt{1+f’(x)}dx$</p>
+<p><strong>曲率</strong> 曲率与曲率半径互为倒数,曲率以及曲率圆的圆心有具体的计算公式.</p>
+<p><strong>泰勒级数展开</strong> 貌似是物理中最常用的一个公式了,把函数在某点除展开并忽略高阶项</p>
+<h2 id="积分"><a href="#积分" class="headerlink" title="积分"></a>积分</h2><h3 id="不定积分"><a href="#不定积分" class="headerlink" title="不定积分"></a>不定积分</h3><p><strong>性质</strong> 线性</p>
+<p><strong>原函数存在定理</strong> 连续函数必有原函数</p>
+<p><strong>第一换元法</strong> 实际上可以理解为导数项把dx约掉了…</p>
+<script type="math/tex; mode=display">\int f[\psi(x)]\psi'(x)dx=\int f[\psi(x)]\frac{d\psi(x)}{dx}dx=\int f[\psi(x)]d\psi(x)=\int f[u]du</script><p><strong>第二换元法</strong> 跟第一换元法过程相反…</p>
+<p><strong>分部积分法</strong> 也就是导数的乘法公式的逆运算…</p>
+<p><strong>有理函数的积分</strong> 假分式可以利用多项式除法 化为多项式以及真分式的和.<br>真分式的分子次数小于分母</p>
+<p>有理真分式的积分<br>1.将分式因式分解<br>2.按照分母将分式写为带系数的最简真分式之和的形式</p>
+<script type="math/tex; mode=display">\frac{A}{ax+b} ,\frac{A}{(ax+b)^n},
+\frac{Mx+N}{x^2+px+q},\frac{Mx+N}{(x^2+px+q)^n}</script><p>$x^2+px+q$为二次质因式<br>3.解出未知系数<br>4.对各项最简真分式进行积分</p>
+<p>实际上还是查积分表比较快…例如:<br>Table of integrals, series, and products by I.S. Gradshteyn and I.M. Ryzhik (z-lib.org)<br>用Mathematica更快<br>目前不是很清楚是不是有的积分只能查表才有结果</p>
+<h3 id="定积分"><a href="#定积分" class="headerlink" title="定积分"></a>定积分</h3><p><strong>定积分的性质</strong></p>
+<p>1.线性</p>
+<p>2.积分区间可加性</p>
+<p>3.积分估值</p>
+<script type="math/tex; mode=display">m(b-a)\leq\int^b_af(x)dx\leq M(b-a)</script><p>m和M为积分区间内的最小值和最大值</p>
+<p><strong>积分上限函数及其导数</strong></p>
+<script type="math/tex; mode=display">G'(x)=\frac{d}{dx}\int^x_b f(t)dt=f(x)    (a\leq x \leq b)</script><p>实际上积分上限函数就是一个原函数(根据导数定义证明)</p>
+<p><strong>微积分基本定理</strong></p>
+<p>由积分上限函数证明</p>
+<p><strong>定积分换元</strong></p>
+<p>注意,使用的换元函数需要在新的积分区间上具有连续导数!<br>所以只需要注意积分变量的变化,以及换元函数是否有连续导数,<br>积分的其他部分的只需要带入换元函数即可,记得微分一下dx</p>
+<p><strong>分部积分</strong></p>
+<p>同不定积分,只是每项都有积分上下限</p>
+<p><strong>广义积分</strong></p>
+<p>1.无穷区间上的积分</p>
+<script type="math/tex; mode=display">\int^{+ \infty}_b f(x) dx=\lim_{b \rightarrow+\infty} \int^b_af(x)dx</script><p>极限收敛,则称为广义积分</p>
+<p>2.无界函数的积分</p>
+<p>即先当做有界限函数求积分,再令积分限趋近于断点</p>
+<p><strong>广义积分审敛法</strong></p>
+<p>依靠定义判断是否收敛较为困难, 常用法则:<br>1.比较<br>2.柯西<br>3.绝对值<br>需要可以去查..貌似也没啥用</p>
+<p><strong>$\Gamma$函数</strong></p>
+<script type="math/tex; mode=display">\Gamma(s)=\int^{+\infty}_0x^{s-1}e^{-x}dx(s>0)</script><p>性质</p>
+<p>1.递推公式</p>
+<script type="math/tex; mode=display">\Gamma(s)=(s-1)\Gamma (s-1) (s>1)</script><script type="math/tex; mode=display">\Gamma(n+1)=n!</script><p>2.余元公式</p>
+<script type="math/tex; mode=display">\Gamma(s)\Gamma(1-s)=\frac{\pi}{sin(\pi s)}(0<s<1)</script><p>3.</p>
+<script type="math/tex; mode=display">\int^{+\infty}_0u^t e^{-u^2}du=\frac{1}{2}\Gamma(\frac{1+t}{2})(t>-1)</script><p><strong>定积分的应用</strong><br>平均值</p>
+<script type="math/tex; mode=display">\frac{1}{b-a}\int^b_af(x)dx</script><p>均方根</p>
+<script type="math/tex; mode=display">\sqrt{\frac{1}{b-a}\int^b_af^2(x)dx}</script><h1 id="向量代数与空间解析几何"><a href="#向量代数与空间解析几何" class="headerlink" title="向量代数与空间解析几何"></a>向量代数与空间解析几何</h1><p><strong>三种积</strong></p>
+<p>1.数量积</p>
+<script type="math/tex; mode=display">\boldsymbol a \cdot \boldsymbol  b=|a||b|cos(\boldsymbol a,\boldsymbol b)</script><p>几何意义为a在b上的投影,与b的乘积或者反过来</p>
+<p>2.向量积</p>
+<script type="math/tex; mode=display">|\boldsymbol a\times\boldsymbol  b|=|a||b|sin(\boldsymbol a,\boldsymbol b)</script><p>方向与a,b成右手螺旋关系,几何意义为a,b平行四边形面积<br>不满足交换律,交换变符号</p>
+<p>3.混合积(懒得加粗了…)</p>
+<script type="math/tex; mode=display">[abc]=(a\times b)\cdot c=|a\times b||c|cos(a\times b,c)</script><p>几何意义为abc所围平行六面体的体积</p>
+<script type="math/tex; mode=display">[a  b  c]=[bca]=[cab]=-[bac]=-[cba]=-[acb]</script><p><strong>坐标表示</strong></p>
+<p>点积</p>
+<script type="math/tex; mode=display">a\cdot b=a_xb^x</script><p>叉积</p>
+<script type="math/tex; mode=display">
+a\times b=\begin{vmatrix}
+\boldsymbol i&\boldsymbol j&\boldsymbol k\\
+a_x&a_y&a_z\\
+b_x&b_y&b_z\\
+\end{vmatrix}</script><p>混合积</p>
+<script type="math/tex; mode=display">
+[\boldsymbol a\  \boldsymbol b\ \boldsymbol  c]=\begin{vmatrix}
+a_x&a_y&a_z \\
+b_x&b_y&b_z \\
+c_x&c_y&c_z \\
+\end{vmatrix}</script><p>混合积的轮换性质由此可以从行列式的性质推出</p>
+<p><strong>曲面方程</strong></p>
+<script type="math/tex; mode=display">F(x,y,z)=0</script><p>…<br>好像没啥好说的</p>
+<p>曲面方程可视化请使用Mathematica <strong>ContourPlot3D</strong> 函数..</p>
+<p><strong>平面方程</strong></p>
+<p>貌似也没啥好说的..</p>
+<p>好了 高数一 到此结束 内容不多</p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Qin Jin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://qinjinbnu.github.io/qinjin.github.io/2020/08/14/Advanced-Mathematics/">https://qinjinbnu.github.io/qinjin.github.io/2020/08/14/Advanced-Mathematics/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://qinjinbnu.github.io/qinjin.github.io" target="_blank">鸡腿小鲜肉的养鸡场</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/qinjin.github.io/tags/Math/">Math</a></div><div class="post_share"><div class="social-share" data-image="/qinjin.github.io/img/c3.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/qinjin.github.io/2020/08/14/Ubuntu-Fonts/"><img class="prev-cover" data-src="/qinjin.github.io/img/c9.jpg" onerror="onerror=null;src='/qinjin.github.io/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Ubuntu 缺失字体安装</div></div></a></div><div class="next-post pull-right"><a href="/qinjin.github.io/2020/07/24/Ubuntu-Hexo-Blog/"><img class="next-cover" data-src="/qinjin.github.io/img/c5.jpg" onerror="onerror=null;src='/qinjin.github.io/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Ubuntu 搭建 Hexo 博客(butterfly 主题)</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/qinjin.github.io/2020/08/20/Advanced-Mathematics2/" title="高数笔记  高数二"><img class="relatedPosts_cover" data-src="/img/c3.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-20</div><div class="relatedPosts_title">高数笔记  高数二</div></div></a></div></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '150e858ddcd282b2418a',
+  clientSecret: 'f6c4769633af66e9504849b27d7f259be8613dea',
+  repo: 'qinjin.github.io',
+  owner: 'qinjinbnu',
+  admin: ['qinjinbnu'],
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN',
+  perPage: 10,
+  distractionFreeMode: false,
+  pagerDirection: 'last',
+  createIssueManually: false,
+  updateCountCallback: commentCount
+})
+gitalk.render('gitalk-container')
+
+function commentCount(n){
+  try {
+    document.getElementsByClassName('gitalk-comment-count')[0].innerHTML= n
+  } catch (e) {
+    return false
+  }
+}</script></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By Qin Jin</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button id="readmode" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font_plus" title="放大字体"><i class="fas fa-plus"></i></button><button id="font_minus" title="缩小字体"><i class="fas fa-minus"></i></button><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">简</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fas fa-comments"></i></a><button class="close" id="mobile-toc-button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/qinjin.github.io/js/utils.js"></script><script src="/qinjin.github.io/js/main.js"></script><script src="/qinjin.github.io/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="/qinjin.github.io/js/third-party/fireworks.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/qinjin.github.io/js/third-party/canvas-nest.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script></body></html>
